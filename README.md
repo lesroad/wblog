@@ -1,3 +1,3 @@
-# 无闻博客系统
+# 个人博客系统
 
-main.go路径示例：gocode/src/beego项目/无闻/main.go
+main.go路径示例：gocode/src/beego项目/wblog/main.go

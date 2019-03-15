@@ -1,0 +1,76 @@
+{{template "comm/head.html"}}
+<title>分类管理 - 我的 beego 博客</title>
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            {{template "comm/navbar.html" .}}
+        </div>
+    </div>
+
+    <div class="container">
+        <br><br><br>
+        <h1>分类列表</h1>
+        <form method="POST" action="/category">
+            <div class="form-group">
+                <label>分类名称</label>
+                <input class="form-control" placeholder="Enter account" name="name" id="name">
+            </div>
+            <!-- <input type="hidden" name="op" value="add"> -->
+            <button type="submit" class="btn btn-default" onclick="return checkInput();">添加</button>
+        </form>
+
+        <script type="text/javascript">  //检查是否输入为空
+            function checkInput() {
+                var name = document.getElementById("name")
+                if (name.value.length == 0) {
+                    alert("请输入分类！")
+                    return false
+                }
+                return true
+            }
+        </script>
+
+        {{if eq .ifexist 1}}
+        <script type="text/javascript">
+            alert("该类别已存在！")
+        </script>
+        {{else if eq .ifexist 2}}
+        <script type="text/javascript">
+            alert("添加成功！")
+        </script>
+        {{end}}
+
+        {{if eq .ifdelete true}}
+        <script type="text/javascript">
+            alert("删除成功！")
+        </script>
+        {{end}}
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>名称</th>
+                    <th>文章数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .Categories}}
+                <tr>
+                    <th>{{.Id}}</th>
+                    <th>{{.Title}}</th>
+                    <th>{{.TopicCount}}</th>
+                    <th><a href="/delete?id={{.Id}}">删除</a></th>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascripts" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascripts" src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>

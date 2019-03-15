@@ -1,0 +1,50 @@
+{{template "comm/head.html"}}
+<title>添加文章 - 我的 beego 博客</title>
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            {{template "comm/navbar.html" .}}
+        </div>
+    </div>
+
+    <div class="container">
+        <br><br><br>
+        <h1>添加文章</h1>
+        <form method="POST" action="/topic" enctype="multipart/form-data">
+            <!--让提交和修改文章都对应post方法-->
+            <div class="form-group">
+                <label>文章标题：</label>
+                <input type="text" name="title" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>文章分类：</label>
+                <input type="text" name="category" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>文章标签：</label>
+                <input type="text" name="label" class="form-control">
+            </div>
+
+            <div class="form-gorup">
+                <label>文章内容</label>
+                <textarea name="content" cols="30" row="30" rows="10" class="form-control"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>文章附件：</label>
+                <input type="file" name="file" class="form-control">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-default">添加文章</button>
+        </form>
+
+    </div>
+    <script type="text/javascripts" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascripts" src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>
