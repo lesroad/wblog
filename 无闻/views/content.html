@@ -1,0 +1,56 @@
+{{template "comm/head.html"}}
+<title>{{.Topic.Title}} - 我的 beego 博客</title>
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            {{template "comm/navbar.html" .}}
+        </div>
+    </div>
+
+    <div class="container">
+        <br><br><br>
+        {{$labels := .Labels}}
+        <h1>{{.Topic.Title}} <small>{{.Topic.Category}}</small></h1>
+        <h5>
+            {{range $labels}}
+            <a href="/?label={{.}}">{{.}}</a>
+            {{end}}
+        </h5>
+        {{.Topic.Content}}
+        <h5>文章附件:<a href="/file/{{.Topic.Attachment}}">{{.Topic.Attachment}}</a></h5>
+    </div>
+
+    <div class="container">
+        {{$tid := .Topic.Id}}
+        {{$islogin := .IsLogin}}
+        <!--PrePare函数已经赋值了-->
+        {{range .Replies}}
+        <h3>{{.Name}} <small>{{.Created}}</small>{{if $islogin}}<a
+                href="/reply/delete?tid={{$tid}}&rid={{.Id}}">删除</a>{{end}}</h3>
+        {{.Content}}
+        {{end}}
+
+        <h3>添加回复</h3>
+        <form method="post" action="/reply/add">
+            <input type="hidden" name="tid" value="{{.Topic.Id}}">
+            <div class="form-froup">
+                <label>显示昵称：</label>
+                <input type="text" class="form-control" name="nickname">
+            </div>
+
+            <div class="form-froup">
+                <label>内容：</label>
+                <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+            <br>
+            <button class="btn btn-default">提交回复</button>
+        </form>
+    </div>
+
+    <script type="text/javascripts" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascripts" src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>
