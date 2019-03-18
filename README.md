@@ -20,36 +20,13 @@
 
 1 . 设置GOPATH(安装目录)
 
-    $ export GOPATH=/path/to/
+    $ export GOPATH=/go/gocode/
 
 
 2 . 下载安装
 
-    $ go get github.com/Echosong/beego_blog
+    $ go get github.com/lesroad/wblog
 
-4 . 加入数据库
-
-   mysql 新建db_beego数据库把根目录 db_beego.sql 导入
-
-5 . 修改 app.conf 配置
-
-    #MYSQL地址
-    dbhost = localhost
-
-    #MYSQL端口
-    dbport = 3306
-
-    #MYSQL用户名
-    dbuser = root
-
-    #MYSQL密码
-    dbpassword =
-
-    #MYSQL数据库名称
-    dbname = db_beego
-
-    #MYSQL表前缀
-    dbprefix = tb_
 
  6 . 运行
 
