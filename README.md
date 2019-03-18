@@ -6,7 +6,7 @@
 ## 编译安装说明：
 
 1 . 设置GOPATH(安装目录)
-  $ export GOPATH=/go/gocode/
+    $ export GOPATH=/go/gocode/
 
 2 . 下载安装
   $ go get github.com/lesroad/wblog
