@@ -18,7 +18,7 @@
 
  3 . 运行
 
-    cd 到 beego_blog 目录 执行
+    cd 到 wblog 目录 执行
     $ bee run
 
  4 . 浏览器演示
